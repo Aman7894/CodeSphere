@@ -26,9 +26,10 @@ const Signup = () => {
         if (success) navigate('/dashboard');
     };
 
-    const handleSocialLogin = (provider) => {
-        window.location.href = `http://localhost:3000/api/auth/${provider}`;
-    };
+   const handleSocialLogin = (provider) => {
+    const backendUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:3000';
+    window.location.href = `${backendUrl}/api/auth/${provider}`;
+};
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-[#0d1117] p-4 text-white">
